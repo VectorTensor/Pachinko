@@ -21,6 +21,9 @@ public class PositionPins : MonoBehaviour
     [SerializeField] GameObject Compartment;
     [SerializeField] GameObject CompartmentRef;
 
+    [SerializeField] public  GameObject ClampPos1;
+    [SerializeField] public GameObject ClampPos2;
+
     [SerializeField] GameObject ScoreObject;
 
     private  GameObject CoinInstant;
@@ -161,11 +164,13 @@ public class PositionPins : MonoBehaviour
     }
 
     void DestroyTheCoin(GameObject gm){
+        Drop.Dropped = false;
         CoinInstant.transform.position = (BallRef1.transform.position);
         CoinInstant.transform.DOMove(BallRef2.transform.position,2).SetLoops(-1,LoopType.Yoyo).SetId(24);
     }
 
     void DestroyTheCoin(){
+        Drop.Dropped = false;
         CoinInstant.transform.position = (BallRef1.transform.position);
         CoinInstant.transform.DOMove(BallRef2.transform.position,2).SetLoops(-1,LoopType.Yoyo).SetId(24);
 

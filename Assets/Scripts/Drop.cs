@@ -6,9 +6,15 @@ using System;
 public class Drop : MonoBehaviour
 {
     public static event Action DropClicked;
+
+    public static bool Dropped;
     // Start is called before the first frame update
     void Start()
+
+
+    
     {
+        Dropped = false;
         gameObject.GetComponent<Button>().onClick.AddListener(DropTheCoin);
            
     }
@@ -40,6 +46,7 @@ public class Drop : MonoBehaviour
     }
     void DropTheCoin(){
         Debug.Log("Button clicked");
+        Dropped = true;
         gameObject.GetComponent<Button>().interactable = false;
         DropClicked?.Invoke();
     }

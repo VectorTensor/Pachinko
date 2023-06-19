@@ -18,15 +18,19 @@ public class ClampPosition : MonoBehaviour
     void Update()
     {
        // gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,-20,0); 
-        float z=  Mathf.Clamp(transform.position.z,-23.9f, -21f);       
+        float z=  Mathf.Clamp(transform.position.z,-22.9f, -22f);       
         //Debug.Log(transform.position);
         transform.position = new Vector3(transform.position.x, transform.position.y, z);
 
         
     }
 
-    void FixedUpdate(){
-        gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0,-15,0) * Time.deltaTime; 
+    void FixedUpdate(){ 
+
+        if (Drop.Dropped) {
+            gameObject.GetComponent<Rigidbody>().velocity += new Vector3(0,-15,0) * Time.deltaTime; 
+
+        }
 
     }
 }

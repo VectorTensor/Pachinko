@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class ScoreCard : MonoBehaviour
 {
 
@@ -41,7 +42,7 @@ public class ScoreCard : MonoBehaviour
     void ChangeScore(GameObject gm){
         int x = PositionPins.gameObjectDictionary[gm];
         gameObject.GetComponent<TextMeshProUGUI>().text = x.ToString();
-       // Board.GetComponent<MeshRenderer>().material = GojoMaterial;
+        Board.GetComponent<Image>().material = GojoMaterial;
       //  Debug.Log(x);
     }
 
@@ -49,7 +50,7 @@ public class ScoreCard : MonoBehaviour
     void NegScore(){
         int x = -10;
         gameObject.GetComponent<TextMeshProUGUI>().text = x.ToString();
-       // Board.GetComponent<MeshRenderer>().material = SukunaMaterial;
+        Board.GetComponent<Image>().material = SukunaMaterial;
 
       //  Debug.Log(x);
     }
