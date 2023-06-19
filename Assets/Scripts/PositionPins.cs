@@ -30,15 +30,27 @@ public class PositionPins : MonoBehaviour
     int increment_x = 6;
     int increment_y = 6;
     
-    public static Dictionary<GameObject, int> gameObjectDictionary;
-    List<int> Prizes;
+    public static Dictionary<GameObject, PrizeType> gameObjectDictionary;
+    List<PrizeType> Prizes;
+
+
+    public class PrizeType{
+
+        public string  type; 
+        public int value;
+
+        public PrizeType(string t, int v){
+            type = t;
+            value = v;
+        }
+
+    };
 
     // Start is called before the first frame update
     void Start()
     {
-
-        gameObjectDictionary = new Dictionary<GameObject,int>();
-        Prizes = new List<int>(){1,2,5,2,1};
+        gameObjectDictionary = new Dictionary<GameObject,PrizeType>();
+        Prizes = new List<PrizeType>(){new PrizeType("normal", 1),new PrizeType("normal", 2),new PrizeType("normal", 5),new PrizeType("normal", 2),new PrizeType("normal", 1)};
         PositionPinsMethod();
         InstantiateCompartments();
         InstantiateScores();

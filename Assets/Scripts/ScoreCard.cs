@@ -40,7 +40,7 @@ public class ScoreCard : MonoBehaviour
     }
 
     void ChangeScore(GameObject gm){
-        int x = PositionPins.gameObjectDictionary[gm];
+        int x = PositionPins.gameObjectDictionary[gm].value;
         gameObject.GetComponent<TextMeshProUGUI>().text ="Score \n" + x.ToString();
         Board.GetComponent<Image>().material = GojoMaterial;
       //  Debug.Log(x);
