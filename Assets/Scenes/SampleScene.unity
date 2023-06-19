@@ -436,7 +436,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276052329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 59}
+  m_LocalPosition: {x: 0, y: 0, z: -102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: c7ae694325456db4393beeae84a5be75, type: 3}
-  Board: {fileID: 1179079011}
+  Board: {fileID: 1560199100}
   GojoMaterial: {fileID: 2100000, guid: 03485dce7c315db4583b755e1651a9ed, type: 2}
   SukunaMaterial: {fileID: 2100000, guid: a19d3cac43b886f45b7abd255cfff62e, type: 2}
 --- !u!82 &1260204859
@@ -1563,7 +1563,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560199100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 332}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1653,6 +1653,8 @@ MonoBehaviour:
   BallRef2: {fileID: 45093676}
   Compartment: {fileID: 942977424313908956, guid: 62f72785fc95e63408da1ffb480c7c4d, type: 3}
   CompartmentRef: {fileID: 940001248}
+  ClampPos1: {fileID: 336828384}
+  ClampPos2: {fileID: 339800549}
   ScoreObject: {fileID: 2122184721035351466, guid: 0a8390f0718d38b40b08185998c1258a, type: 3}
 --- !u!4 &1581837555
 Transform:
@@ -2135,8 +2137,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1560199101}
-  - {fileID: 276052330}
   - {fileID: 209585953}
+  - {fileID: 276052330}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

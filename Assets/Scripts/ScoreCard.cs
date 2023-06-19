@@ -41,7 +41,7 @@ public class ScoreCard : MonoBehaviour
 
     void ChangeScore(GameObject gm){
         int x = PositionPins.gameObjectDictionary[gm];
-        gameObject.GetComponent<TextMeshProUGUI>().text = x.ToString();
+        gameObject.GetComponent<TextMeshProUGUI>().text ="Score \n" + x.ToString();
         Board.GetComponent<Image>().material = GojoMaterial;
       //  Debug.Log(x);
     }
@@ -49,7 +49,7 @@ public class ScoreCard : MonoBehaviour
 
     void NegScore(){
         int x = -10;
-        gameObject.GetComponent<TextMeshProUGUI>().text = x.ToString();
+        gameObject.GetComponent<TextMeshProUGUI>().text ="Score \n" + x.ToString();
         Board.GetComponent<Image>().material = SukunaMaterial;
 
       //  Debug.Log(x);
