@@ -10,8 +10,11 @@ public class ScoreCard : MonoBehaviour
     public AudioClip Clip;
 
     [SerializeField] GameObject Board ;
-    [SerializeField] Material GojoMaterial;
-    [SerializeField] Material SukunaMaterial;
+    [SerializeField] Material GiyuMaterial;
+    [SerializeField] Material SanameiMaterial;
+    [SerializeField] Material ShinobuMaterial;
+
+    [SerializeField] GameObject IconImage;
 
 
     // Start is called before the first frame update
@@ -41,16 +44,31 @@ public class ScoreCard : MonoBehaviour
 
     void ChangeScore(GameObject gm){
         int x = PositionPins.gameObjectDictionary[gm].value;
-        gameObject.GetComponent<TextMeshProUGUI>().text ="Score \n" + x.ToString();
-        Board.GetComponent<Image>().material = GojoMaterial;
+        gameObject.GetComponent<TextMeshProUGUI>().text ="You got \n" + x.ToString();
+        IconImage.SetActive(true);
+        IconImage.GetComponent<Image>().color= PositionPins.gameObjectDictionary[gm].type.image.color; // change sprite or color
+        IconImage.GetComponent<Image>().sprite= PositionPins.gameObjectDictionary[gm].type.image.sprite; // change sprite or color
+
+        RewardStack.GetInstance().UpdateList(PositionPins.gameObjectDictionary[gm]);
+        
+        if (PositionPins.gameObjectDictionary[gm].type.prizetype == PrizeTypes.GEMS){
+          Board.GetComponent<Image>().material = GiyuMaterial;
+
+        }
+        else{
+          Board.GetComponent<Image>().material = ShinobuMaterial;
+
+        }
       //  Debug.Log(x);
     }
 
 
     void NegScore(){
-        int x = -10;
-        gameObject.GetComponent<TextMeshProUGUI>().text ="Score \n" + x.ToString();
-        Board.GetComponent<Image>().material = SukunaMaterial;
+        //int x = -10;
+        IconImage.SetActive(false);
+
+        gameObject.GetComponent<TextMeshProUGUI>().text ="Sorry you got nothing ";
+        Board.GetComponent<Image>().material = SanameiMaterial;
 
       //  Debug.Log(x);
     }

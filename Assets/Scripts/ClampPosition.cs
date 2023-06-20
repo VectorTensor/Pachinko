@@ -20,7 +20,9 @@ public class ClampPosition : MonoBehaviour
        // gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,-20,0); 
         float z=  Mathf.Clamp(transform.position.z,-22.9f, -22f);       
         //Debug.Log(transform.position);
-        transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        float x=  Mathf.Clamp(transform.position.x,-85f, -16f);       
+
+        transform.position = new Vector3(x, transform.position.y, z);
 
         
     }

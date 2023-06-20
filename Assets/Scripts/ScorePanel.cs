@@ -14,6 +14,9 @@ public class ScorePanel : MonoBehaviour
 
     [SerializeField] GameObject OkButton; 
     
+    [SerializeField] Material DefaultMaterial;
+
+    [SerializeField] GameObject Background;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,11 +51,12 @@ public class ScorePanel : MonoBehaviour
     }
 
     void TranslateScorePanel(){
-        transform.DOMove(ScorePanelReference.transform.position,1);
+        transform.DOMove(ScorePanelReference.transform.position,0.5f);
     }
 
 
     void TranslateUpward(){
+        Background.GetComponent<Image>().material = DefaultMaterial;
         transform.Translate(0,200, 0 );
     }
 
