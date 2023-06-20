@@ -71,6 +71,7 @@ public class PositionPins : MonoBehaviour
 // Need to refactor it later so it can work on a loop
     void AddPrizes(){
 
+        
         PrizeItem CoinType = new PrizeItem(ObjectReferences.GetInstance().Coin,PrizeTypes.COIN);
         PrizeItem GemsType = new PrizeItem(ObjectReferences.GetInstance().Gems,PrizeTypes.GEMS);
         PrizeItem OutfitType = new PrizeItem(ObjectReferences.GetInstance().OutfitSkin,PrizeTypes.OUTFITSKIN);
@@ -101,6 +102,42 @@ public class PositionPins : MonoBehaviour
 
 
                 
+    }
+
+    void AddPrizesV2(){
+
+        List<PrizeItem> ItemList = new List<PrizeItem>();
+        PrizeItem CoinType = new PrizeItem(ObjectReferences.GetInstance().Coin,PrizeTypes.COIN);
+        PrizeItem GemsType = new PrizeItem(ObjectReferences.GetInstance().Gems,PrizeTypes.GEMS);
+        PrizeItem OutfitType = new PrizeItem(ObjectReferences.GetInstance().OutfitSkin,PrizeTypes.OUTFITSKIN);
+        ItemList.Add(CoinType);
+        ItemList.Add(GemsType);
+        ItemList.Add(OutfitType);
+
+        RewardStack.GetInstance().PrizeCount = new Dictionary<PrizeTypes, int>();
+        RewardStack.GetInstance().PrizeReference = new Dictionary<PrizeTypes,GameObject>();
+        Vector3 PrizePosition = ObjectReferences.GetInstance().ItemsRef1.transform.position;
+        GameObject gm;
+        int index =0;
+        foreach (var x in Enum.GetValues(typeof(PrizeTypes))){
+            //Debug.Log(x);
+            //PrizeItem PI = new PrizeItem(ObjectReferences.GetInstance().Coin,(PrizeTypes) x);
+            RewardStack.GetInstance().PrizeCount.Add(ItemList[index].prizetype,0);
+            gm= InstantiatePrizeItem(ItemList[index].image,PrizePosition);
+            RewardStack.GetInstance().PrizeReference.Add(ItemList[index].prizetype, gm);
+            PrizePosition.y -= 6;
+            index ++;
+
+        }
+
+        Prizes.Add(new PrizeType(ItemList[0], 50));
+        Prizes.Add(new PrizeType(ItemList[0], 500));
+        Prizes.Add(new PrizeType(ItemList[1], 10));
+        Prizes.Add(new PrizeType(ItemList[1], 20));
+        Prizes.Add(new PrizeType(ItemList[2], 1));
+        // Add the prize in sequence
+
+
     }
 
     
@@ -222,12 +259,12 @@ public class PositionPins : MonoBehaviour
      void DropTheCoinMethodManual(){
        
         DOTween.Kill(24);
-        CoinInstant.GetComponent<ClampPosition>().Movedown();
+      // CoinInstant.GetComponent<ClampPosition>().Movedown();
 
     }   
 
     void OnEnable(){
-        Drop.DropClicked += DropTheCoinMethodManual;
+     //   Drop.DropClicked += DropTheCoinMethodManual;
         CoinObject.onScoreHit += DestroyTheCoin;
         CoinObject.onNegScoreHit += DestroyTheCoin;
     }
@@ -246,8 +283,9 @@ public class PositionPins : MonoBehaviour
     }
 
     void OnDisable(){
-        Drop.DropClicked -= DropTheCoinMethodManual;
-
+    //    Drop.DropClicked -= DropTheCoinMethodManual;
+        CoinObject.onScoreHit -= DestroyTheCoin;
+        CoinObject.onNegScoreHit -= DestroyTheCoin;
     }
 
 }

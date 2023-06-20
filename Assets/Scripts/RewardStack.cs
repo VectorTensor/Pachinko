@@ -7,7 +7,6 @@ public class RewardStack : MonoBehaviour
 {
 
     public static RewardStack instance;
-    public List<PrizeType> RewardList;
 
     private int CoinCount=0;
     private int GemCount=0;
@@ -31,7 +30,6 @@ public class RewardStack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RewardList = new List<PrizeType>();
 //        PrizeCount = new Dictionary<PrizeItem, int>();
     }
 
@@ -70,7 +68,6 @@ public class RewardStack : MonoBehaviour
         Debug.Log(PrizeCount[PrizeTypes.COIN]);
         Debug.Log(PrizeCount[PrizeTypes.GEMS]);
         Debug.Log(PrizeCount[PrizeTypes.OUTFITSKIN]);
-
     }
 
     // public void UpdateListV2(PrizeType pt){

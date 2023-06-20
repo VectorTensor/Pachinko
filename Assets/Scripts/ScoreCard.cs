@@ -26,8 +26,9 @@ public class ScoreCard : MonoBehaviour
     void OnEnable(){
         CoinObject.onScoreHit += ChangeScore;
         CoinObject.onScoreHit += PlayTheSound;
-
         CoinObject.onNegScoreHit += NegScore;
+    
+
     }
 
     void OnDisable(){
